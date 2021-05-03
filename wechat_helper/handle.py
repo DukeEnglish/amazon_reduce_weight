@@ -41,7 +41,7 @@ class Handle(object):
                 return ""
         except Exception as e:
             print(e)
-            return f"error msg {e}"
+            return e
 
     def POST(self):
         try:
@@ -78,4 +78,4 @@ class Handle(object):
 
         except Exception as e:
             print(e)
-            return f"error msg {e}"
+            return e
