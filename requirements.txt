@@ -3,3 +3,4 @@ urllib
 urllib2
 poster
 knlp
+boto3

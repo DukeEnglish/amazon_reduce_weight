@@ -6,7 +6,7 @@ import web
 
 from config import app_token
 from wechat_helper import reply, receive
-
+from handler_function import helper
 
 # from poem.config import Config
 # from poem.generate_poem import PoetryModel
@@ -54,8 +54,8 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
                     content = recMsg.Content
-                    # replyMsg = reply.TextMsg(toUser, fromUser, content, model)
-                    replyMsg = reply.TextMsg(toUser, fromUser, content, model=lambda x: str(x))
+                    # replyMsg = reply.TextMsg(toUser, fromUser, content, model=lambda x: str(x))
+                    replyMsg = reply.TextMsg(toUser, fromUser, content, model=helper)
                     return replyMsg.send()
                 if recMsg.MsgType == 'image':
                     mediaId = recMsg.MediaId
