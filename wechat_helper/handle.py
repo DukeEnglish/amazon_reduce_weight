@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 # filename: handle.py
 import hashlib
-from wechat_helper import reply, receive
+
 import web
+
+from config import app_token
+from wechat_helper import reply, receive
+
+
 # from poem.config import Config
 # from poem.generate_poem import PoetryModel
 # model = PoetryModel(Config)
@@ -22,14 +27,14 @@ class Handle(object):
             timestamp = data.timestamp
             nonce = data.nonce
             echostr = data.echostr
-            token = "xxxxxxxx"  # 请按照公众平台官网\基本配置中信息填写
+            token = app_token  # 请按照公众平台官网\基本配置中信息填写
 
             my_list = [token, timestamp, nonce]
             my_list.sort()
             sha1 = hashlib.sha1()
             map(sha1.update, my_list)
             hashcode = sha1.hexdigest()
-            print ("handle/GET func: hashcode, signature: ", hashcode, signature)  # 打印后台日志
+            print("handle/GET func: hashcode, signature: ", hashcode, signature)  # 打印后台日志
             if hashcode == signature:
                 return echostr
             else:
@@ -41,7 +46,7 @@ class Handle(object):
     def POST(self):
         try:
             webData = web.data()
-            print ("Handle Post webdata is \n", webData)  # 打印后台日志
+            print("Handle Post webdata is \n", webData)  # 打印后台日志
             recMsg = receive.parse_xml(webData)
 
             if isinstance(recMsg, receive.Msg):
@@ -63,12 +68,12 @@ class Handle(object):
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
                 if recMsg.Event == 'CLICK':
-                    print ('It is a CLICK event')
+                    print('It is a CLICK event')
                     content = u'功能正在开发中，敬请期待..'.encode('utf-8')
                     replyMsg = reply.TextMsg(toUser, fromUser, content)
                     return replyMsg.send()
 
-            print ("暂且不处理")
+            print("暂且不处理")
             return reply.Msg().send()
 
         except Exception as e:

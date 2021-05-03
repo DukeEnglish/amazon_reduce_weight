@@ -10,6 +10,7 @@ class Msg(object):
     def send(self):
         return "success"
 
+
 # 在这里处理如何返回发来的信息，主要是重新返回内容
 class TextMsg(Msg):
     def __init__(self, toUserName, fromUserName, content, model):
@@ -20,7 +21,6 @@ class TextMsg(Msg):
         sen = model(content)
         # sen = content
         self.__dict['Content'] = sen
-        
 
     def send(self):
         XmlForm = """

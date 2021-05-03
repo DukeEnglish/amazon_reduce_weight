@@ -4,6 +4,8 @@ import json
 import time
 import urllib
 
+from config import app_id, app_secret
+
 
 class Basic:
     def __init__(self):
@@ -11,8 +13,8 @@ class Basic:
         self.__leftTime = 0
 
     def __real_get_access_token(self):
-        appId = "xxxxxxxxx"  # 公众号的appid 请在公众号网页上查看
-        appSecret = "xxxxxxxxx"  # 公众号的appSecret 请在公众号网页上查看
+        appId = app_id
+        appSecret = app_secret
 
         postUrl = ("https://api.weixin.qq.com/cgi-bin/token?grant_type="
                    "client_credential&appid=%s&secret=%s" % (appId, appSecret))
