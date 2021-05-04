@@ -54,7 +54,7 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
                     content = recMsg.Content
-                    # replyMsg = reply.TextMsg(toUser, fromUser, content, model=lambda x: str(x))
+                    #replyMsg = reply.TextMsg(toUser, fromUser, content, model=lambda x: str(x))
                     replyMsg = reply.TextMsg(toUser, fromUser, content, model=helper)
                     return replyMsg.send()
                 if recMsg.MsgType == 'image':

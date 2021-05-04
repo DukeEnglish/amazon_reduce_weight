@@ -9,12 +9,12 @@
 # -----------------------------------------------------------------------#
 import re
 
-cal_resting_metal_demo = "咨询：我的体重是100kg，身高是178，年龄是27，性别是男，目标体重是70kg，想要在30天内达到目标体重"
+cal_resting_metal_demo = "咨询：我的体重是100kg，身高是178，年龄是27，性别是男，目标体重是70kg，想要在100天内达到目标体重"
 loss_calorie_per_day_demo = "咨询：我的体重是100kg，身高是178，年龄是27，性别是男，静息代谢率是多少"
 
 
 def re_helper(input_sentence):
-    if len(input_sentence) == len(cal_resting_metal_demo):
+    if "静息代谢" not in input_sentence:
         cal_resting_metal = r"咨询：我的体重是(.*)kg，身高是(.*?)，年龄是(.*?)，性别是(.*?)，目标体重是(.*?)kg，想要在(.*?)天内达到目标体重"
         match_obj = re.match(cal_resting_metal, input_sentence)
         output = []
@@ -31,3 +31,8 @@ def re_helper(input_sentence):
         for idx in range(1, 5):
             output.append(match_obj.group(idx))
     return output
+
+
+if __name__ == '__main__':
+    res = re_helper(cal_resting_metal_demo)
+    print(res)

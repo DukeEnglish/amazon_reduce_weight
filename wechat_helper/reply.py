@@ -18,7 +18,7 @@ class TextMsg(Msg):
         self.__dict['ToUserName'] = toUserName
         self.__dict['FromUserName'] = fromUserName
         self.__dict['CreateTime'] = int(time.time())
-        sen = model(content)
+        sen = model(content.decode())
         # sen = content
         self.__dict['Content'] = sen
 

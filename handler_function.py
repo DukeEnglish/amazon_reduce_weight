@@ -15,9 +15,9 @@ from nlp_helper import re_helper
 
 def qa_function(input_sentence):
     parse_input = re_helper(input_sentence)
+    print(parse_input)
     if not parse_input:
         return ""
-    print(parse_input)
     if len(parse_input) < 5:
         resting_metal = cal_resting_metal(int(parse_input[1]), int(parse_input[0]), int(parse_input[2]), parse_input[3])
         return f"每天静息代谢是{resting_metal}大卡"
@@ -36,6 +36,9 @@ def helper(input_sentence):
     :param input_sentence: string
     :return: string
     """
+    #print(type(input_sentence))
+    #print(len(input_sentence))
+    input_sentence = input_sentence.strip()
     if "问询" in input_sentence:
         zh_res = main(input_sentence)
     elif "咨询" in input_sentence:
@@ -48,14 +51,15 @@ def helper(input_sentence):
         en_res = ""
     res = f"中文结果: {zh_res}\n" \
         f"English result is: {en_res}"
+    print(res)
     return res
 
 
 if __name__ == '__main__':
-    res = helper("问询：鸡蛋的热量是多少")
-    print(res)
-    res = helper("咨询：水电费水电费")
-    print(res)
+    #res = helper("问询：鸡蛋的热量是多少")
+    #print(res)
+    #res = helper("咨询：水电费水电费")
+    #print(res)
     q = "咨询：我的体重是100kg，身高是178，年龄是27，性别是男，目标体重是70kg，想要在30天内达到目标体重"
     res = helper(q)
     print(res)
