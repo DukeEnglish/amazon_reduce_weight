@@ -7,8 +7,8 @@ https://github.com/DukeEnglish/amazon_reduce_weight
 DEMO
 扫码关注微信，可以测试：
 
-![img](https://https://github.com/DukeEnglish/amazon_reduce_weight/blob/main/img/一心走天下.png)
-![img](https://https://github.com/DukeEnglish/amazon_reduce_weight/blob/main/img小李杜.png)
+![img](https://github.com/DukeEnglish/amazon_reduce_weight/blob/main/img/%E4%B8%80%E5%BF%83%E8%B5%B0%E5%A4%A9%E4%B8%8B.png)
+![img](https://github.com/DukeEnglish/amazon_reduce_weight/blob/main/img/小李杜.png)
 
 测试case：
 - "问询：鸡蛋的热量是多少"
